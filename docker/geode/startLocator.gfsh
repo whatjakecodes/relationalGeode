@@ -1,0 +1,3 @@
+start locator --name=geode-locator --connect=false --redirect-output --bind-address=geode-locator --http-service-bind-address=geode-locator --jmx-manager-hostname-for-clients=geode-locator --hostname-for-clients=geode-locator
+connect --locator=geode-locator[10334]
+configure pdx --read-serialized=true

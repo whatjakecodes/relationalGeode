@@ -1,0 +1,1 @@
+start server --name=geode-server --group=group-dolores --bind-address=geode-server --http-service-bind-address=geode-server --hostname-for-clients=geode-server --server-port=40404 --locators=geode-locator[10334]

@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  geode-locator:
+    hostname: geode-locator
+    container_name: geode-locator
+    image: apachegeode/geode
+    ports:
+      - '1099:1099'
+      - '10334:10334'
+      - '7575:7575'
+      - '7070:7070'
+    volumes:
+      - ./geode:/scripts
+    command: /scripts/startLocator.sh
+
+  geode-server:
+    hostname: geode-server
+    container_name: geode-server
+    image: apachegeode/geode
+    restart: always
+    expose:
+      - '8080'
+      - '1099'
+    ports:
+      - '40404:40404'
+      - '6379:6379'
+    volumes:
+      - ./geode:/scripts
+    command: /scripts/startServer.sh
