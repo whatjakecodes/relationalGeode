@@ -13,6 +13,7 @@ import org.springframework.data.gemfire.repository.config.EnableGemfireRepositor
 import org.springframework.data.gemfire.support.ConnectionEndpoint;
 import org.springframework.geode.config.annotation.EnableClusterAware;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -35,10 +36,10 @@ public class GemfireConfig {
         return event -> {
             repository.save(SomeObject.builder()
                     .someId("id1")
-                    .customFirstObjects(Arrays.asList(CustomFirstObject.builder()
+                    .customFirstObjects(new ArrayList<>(Collections.singletonList(CustomFirstObject.builder()
                             .id(11)
                             .amount(2.0)
-                            .build()))
+                            .build())))
                     .build());
         };
     }
